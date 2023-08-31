@@ -1,29 +1,44 @@
-@extends('layouts.main', ['class' => 'off-canvas-sidebar', 'activePage' => 'register', 'title' => __('Booking')])
+@extends('layouts.main', ['class' => 'off-canvas-sidebar', 'activePage' => 'register', 'title' => __('')])
 
 @section('content')
+
+<style>
+    * {
+        font-weight: 900;
+    }
+
+    span {
+        color: aqua;
+    }
+
+    /* Agrega estilos para cambiar el fondo del contenedor */
+    .card-login {
+        background: none; /* Cambia 'none' a cualquier otro color o imagen deseada */
+        border: none; /* Remueve el borde si es necesario */
+        box-shadow: none; /* Remueve la sombra si es necesario */
+        padding: 0; /* Remueve el espacio interior si es necesario */
+    }
+    .img_logo{
+        width: 60px
+    }
+    .text-container{
+        padding-bottom: -100px;
+    }
+</style>
+
 <div class="container" style="height: auto;">
     <div class="row align-items-center">
+        <div class=" text-container col-md-9 ml-auto mr-auto mb-3 text-center">
+            <img class="img_logo" src="assets/img/logo_smartlock.png" alt="">
+            <h3>Smart<span> Lock</span></h3>
+        </div>
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
             <form class="form" method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <div class="card card-login card-hidden mb-3">
-                    <div class="card-header card-header-primary text-center">
-                        <h4 class="card-title"><strong>{{ __('Register') }}</strong></h4>
-                        <div class="social-line">
-                            <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
-                    </div>
+
                     <div class="card-body ">
-                        <p class="card-description text-center">{{ __('Or Be Classical') }}</p>
                         <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -121,7 +136,7 @@
                     </div>
                     <div class="card-footer justify-content-center">
                         <button type="submit"
-                            class="btn btn-primary btn-link btn-lg">{{ __('Create account') }}</button>
+                            class="btn  btn-link btn-lg">{{ __('Create account') }}</button>
                     </div>
                 </div>
             </form>
